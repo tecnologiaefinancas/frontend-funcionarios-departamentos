@@ -20,8 +20,9 @@
           <td>{{ departamento.id }}</td>
           <td>{{ departamento.nomeDepartamento }}</td>
           <td>
-            <button pButton type="button" icon="pi pi-pencil" label="Editar" pTooltip="Editar" class="p-button-sm p-button-text"></button>
-            <button pButton type="button" icon="pi pi-trash" label="Excluir" pTooltip="Excluir" class="p-button-sm p-button-text"></button>
+            <button pButton type="button" icon="pi pi-pencil" label="Editar" pTooltip="Editar" class="p-button-sm p-button-text" (click)="editDepartamento(departamento)"></button>
+            <button pButton type="button" icon="pi pi-trash" label="Excluir" pTooltip="Excluir" class="p-button-sm p-button-text" (click)="deleteDepartamento(departamento.id)"></button>
+
           </td>
         </tr>
       </ng-template>
@@ -32,3 +33,7 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="Editar Departamento" [(visible)]="displayEditDialog" modal="modal" [closable]="false" [style]="{width: '50vw'}">
+  <app-editar-departamento-form [departamento]="selectedDepartamento" (save)="saveDepartamento($event)" (cancel)="cancelEdit()"></app-editar-departamento-form>
+</p-dialog>
