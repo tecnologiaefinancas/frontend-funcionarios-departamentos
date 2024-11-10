@@ -3,7 +3,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
-import { PrimeIcons } from 'primeng/api';
+import { FormsModule } from '@angular/forms'; // Adicione FormsModule para o ngModel
 
 @Component({
   selector: 'app-departamentos-pesquisa',
@@ -12,12 +12,14 @@ import { PrimeIcons } from 'primeng/api';
     ButtonModule,
     InputTextModule,
     TableModule,
-    TooltipModule
+    TooltipModule,
+    FormsModule // Adicione FormsModule aqui
   ],
   templateUrl: './departamentos-pesquisa.component.html',
   styleUrls: ['./departamentos-pesquisa.component.css']
 })
 export class DepartamentosPesquisaComponent {
+  searchTerm: string = '';
   departamentos = [
     { id: 2401, nomeDepartamento: 'Financeiro' },
     { id: 2402, nomeDepartamento: 'Recursos Humanos' },
@@ -31,4 +33,11 @@ export class DepartamentosPesquisaComponent {
     { id: 2410, nomeDepartamento: 'Administrativo' },
     { id: 2411, nomeDepartamento: 'Pesquisa e Desenvolvimento' }
   ];
+  filteredDepartamentos = this.departamentos;
+
+  search() {
+    this.filteredDepartamentos = this.departamentos.filter(departamento =>
+      departamento.nomeDepartamento.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
 }

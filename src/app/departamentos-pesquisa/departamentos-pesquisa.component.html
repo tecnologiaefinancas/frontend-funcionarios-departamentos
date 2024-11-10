@@ -1,13 +1,13 @@
 <div class="p-grid p-justify-end p-mb-3">
   <div class="p-col-fixed">
-    <input type="text" pInputText placeholder="Pesquisar Departamento" class="p-mr-2" />
-    <button pButton type="button" label="Buscar"></button>
+    <input type="text" pInputText placeholder="Pesquisar Departamento" [(ngModel)]="searchTerm" class="p-mr-2" />
+    <button pButton type="button" label="Buscar" (click)="search()"></button>
   </div>
 </div>
 
 <div class="p-d-flex p-jc-center">
   <div class="p-card" style="width: 70%;">
-    <p-table [value]="departamentos" [paginator]="true" [rows]="5" class="p-datatable p-component">
+    <p-table [value]="filteredDepartamentos" [paginator]="true" [rows]="5" class="p-datatable p-component">
       <ng-template pTemplate="header">
         <tr>
           <th>ID</th>
