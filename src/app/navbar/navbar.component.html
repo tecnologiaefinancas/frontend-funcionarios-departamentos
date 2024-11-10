@@ -1,0 +1,13 @@
+<div class="p-d-flex p-ai-center p-shadow-2 p-p-2" style="background-color: #f8f9fa;">
+  <button pButton type="button" icon="pi pi-bars" class="p-button-text" (click)="toggleSidebar()"></button>
+</div>
+
+<p-sidebar [(visible)]="displaySidebar" position="right" [modal]="true">
+  <h3>Menu</h3>
+  <ul class="p-reset">
+    <li class="p-mb-2" *ngFor="let item of menuItems">
+      {{ item.label }}
+    </li>
+  </ul>
+  <button pButton type="button" label="Fechar" icon="pi pi-times" class="p-mt-2" (click)="toggleSidebar()"></button>
+</p-sidebar>

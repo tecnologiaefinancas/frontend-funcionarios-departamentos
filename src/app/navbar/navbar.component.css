@@ -1,0 +1,32 @@
+.p-shadow-2 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.p-p-2 {
+  padding: 1rem;
+}
+
+.p-ai-center {
+  align-items: center;
+}
+
+.p-d-flex {
+  display: flex;
+}
+
+.p-button-text {
+  color: #007bff;
+}
+
+.p-mt-2 {
+  margin-top: 0.5rem;
+}
+
+.p-mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.p-reset {
+  list-style-type: none;
+  padding: 0;
+}
